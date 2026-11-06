@@ -593,3 +593,8 @@ ul{
         margin-bottom: 120px;
     }
 }
+@media (min-width: 1200px){
+    .container{
+        max-width: min(92%, 1800px);
+    }
+}
