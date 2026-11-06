@@ -431,36 +431,79 @@ ul{
 
 /* for mobile version */
 /* navbar */
+/* project section */
 @media screen and (max-width: 768px){
-    body{
-        margin: 0
+    .uiux img{
+        max-height: calc(572px * 0.375);
+        max-width: calc(937px * 0.375);
+        margin-right: -8px;
     }
-    .navbar{
-        padding-right: 20px;
-        padding-left: 20px;
+    .uiux .component1{
+        display: none;
     }
-    .navbar-toggler .bar{
-        width: 25px;
-        height: 3px;
-        margin: 5px 5px;
-        transition: all 0.3s ease-in-out;
-        background: var(--silver);
-        display: block;
-        cursor: pointer;
+    .KarvaWeb img{
+        margin-top: 80px;
+        max-height: calc(572px * 0.375);
+        max-width: calc(938.42px * 0.375);
+        margin-left: 8px;
     }
-    .navbar-toggler.is-active .bar:nth-child(2){
-        opacity: 0;
+    .KarvaWeb .component2{
+        display: none;
     }
-    .navbar-toggler.is-active .bar:nth-child(1){
-        transform: translateY(8px) rotate(45deg);
+    .KarvaWeb a p{
+        float: left;
+        margin-top: 2rem;
+        margin-left: 1rem;
     }
-    .navbar-toggler.is-active .bar:nth-child(3){
-        transform: translateY(-8px) rotate(-45deg);
+    .iotproject img{
+        margin-top: 50px;
+        max-height: calc(445px * 0.435);
+        max-width: calc(810px * 0.435);
+        margin-bottom: 30px;
+        margin-right: -8px;
     }
-    .navbar-collapse{
-        margin-left: -45px;
-        margin-top: 20px;
-        margin-bottom: 10px;
+    .iotproject .component3{
+        display: none;
+    }
+    .iotproject .description1{
+        margin-top: 270px;
+        height: 115px;
+    }
+    .iotproject p{
+        font-size: var(--normal-font-size);
+        margin-bottom: -35px;
+    }
+    .robotics img{
+        max-height: calc(445px * 0.425);
+        max-width: calc(826.77px * 0.425);
+        margin-bottom: -130px;
+        margin-left: 8px;
+    }
+    .robotics .component4{
+        display: none;
+    }
+    .robotics .description2{
+        height: 168px;
+    }
+    .robotics p{
+        font-size: var(--normal-font-size);
+        margin-bottom: -35px;
+    }
+    .kriptofolk img{
+        max-height: calc(445px * 0.425);
+        max-width: calc(826.77px * 0.425);
+        margin-bottom: -130px;
+        margin-left: 8px;
+    }
+    .kriptofolk .component5{
+        display: none;
+    }
+    .kriptofolk .description2{
+        height: 168px;
+    }
+    .kriptofolk p{
+        font-size: var(--normal-font-size);
+        margin-bottom: -35px;
     }
 }
 
