@@ -93,7 +93,9 @@ ul{
     transform: scale(1);
 }
 .logopad {
-    max-height: 30px;
+    height: 60px;        
+    max-height: none;
+    margin: -12px 0;     
 }
 /* end navbar */
 
@@ -106,6 +108,9 @@ ul{
     position: relative;
 }
 .home_photo img{
+    position: relative;
+    z-index: 2;
+    vertical-align: bottom;   /* tambahkan */
     max-width: 414.27px;
     max-height: 400;
     width: 100%;
@@ -118,7 +123,9 @@ ul{
     width: 400px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    top: 0%;
+    top: 50%;                              
+    left: 50%;                             
+    transform: translate(-50%, -50%);      
 }
 .home_photo .circle::before{
     content: '';
@@ -455,10 +462,9 @@ ul{
 /* home section */
 @media screen and (max-width: 768px){
     .home_photo .circle{
-        height: 315px;
-        width: 315px;
-        top: -2%;
-        left: 5%;
+    height: 315px;
+    width: 315px;
+    left: calc(50% + 8px);   /* 8px mengikuti margin-left foto di mobile */
     }
     .home_photo .circle::before{
         height: 35px;
