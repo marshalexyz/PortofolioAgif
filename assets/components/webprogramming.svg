@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <title>web programming</title>
+  <desc>Minimalist white outlined lowercase typography on a transparent background.</desc>
+  <g fill="none"
+     stroke="#FFFFFF"
+     stroke-width="3.5"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     font-family="Arial, Helvetica, sans-serif"
+     font-weight="700"
+     text-anchor="middle">
+    <text x="800" y="330" font-size="270" letter-spacing="-8">web</text>
+    <text x="800" y="690" font-size="205" letter-spacing="-5"
+          textLength="1450" lengthAdjust="spacingAndGlyphs">programming</text>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <title>graphic design</title>
+  <desc>Two lines of bold lowercase white outline typography on a transparent background.</desc>
+  <g fill="none"
+     stroke="#FFFFFF"
+     stroke-width="3.5"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     font-family="Arial, Helvetica, sans-serif"
+     font-weight="700"
+     text-anchor="middle">
+    <text x="800" y="350" font-size="265" letter-spacing="-7"
+          textLength="1280" lengthAdjust="spacingAndGlyphs">graphic</text>
+    <text x="800" y="700" font-size="265" letter-spacing="-7"
+          textLength="1120" lengthAdjust="spacingAndGlyphs">design</text>
+  </g>
+</svg>

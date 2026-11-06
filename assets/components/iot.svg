@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <title>internet of things (iot)</title>
+  <desc>Outlined white lowercase typography on a transparent background.</desc>
+  <g fill="none"
+     stroke="#FFFFFF"
+     stroke-width="3.5"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     font-family="Arial, Helvetica, sans-serif"
+     font-weight="700"
+     text-anchor="middle">
+    <text x="800" y="345" font-size="235" letter-spacing="-7">internet of</text>
+    <text x="800" y="690" font-size="220" letter-spacing="-6">things (iot)</text>
+  </g>
+</svg>

@@ -197,6 +197,7 @@ ul{
     position: absolute;
     z-index: -1;
     margin-top: 400px;
+    opacity: 0.2;
 }
 .KarvaWeb img{
     margin-top: 150px;
@@ -220,6 +221,7 @@ ul{
     margin-top: -210px;
     z-index: -1;
     float: right;
+    opacity: 0.2;
 }
 .iotproject{
     position: relative;
@@ -235,6 +237,7 @@ ul{
     float: left;
     margin-top: -230px;
     z-index: -1;
+    opacity: 0.2;
 }
 .description1{
     height: 209px;
@@ -266,6 +269,7 @@ ul{
     float: right;
     margin-top: -220px;
     z-index: -1;
+    opacity: 0.3;
 }
 .description2{
     height: 245px;
@@ -323,6 +327,7 @@ ul{
     float: right;
     margin-top: -220px;
     z-index: -1;
+    opacity: 0.3;
 }
 .description3{
     height: 245px;
