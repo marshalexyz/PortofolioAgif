@@ -348,6 +348,32 @@ ul{
     margin-top: 170px;
     margin-right: 20px;
 }
+.rasasora{
+    position: relative;
+}
+.rasasora img{
+    margin-top: 70px;
+    max-height: 445px;
+    max-width: 826.77px;
+    border-radius: 10px;
+}
+.rasasora .component6{
+    float: right;
+    margin-top: -220px;
+    z-index: -1;
+    opacity: 0.3;
+}
+.rasasora p{
+    font-weight: 700;
+    font-family: var(--fontDefaults);
+    font-size: var(--robotics-font-size);
+    color: var(--silver);
+    z-index: 2;
+    float: right;
+    text-align: right;
+    margin-top: 170px;
+    margin-right: 20px;
+}
 /* end project */
 
 /* tools and skills */
@@ -431,6 +457,39 @@ ul{
 
 /* for mobile version */
 /* navbar */
+@media screen and (max-width: 768px){
+    body{
+        margin: 0
+    }
+    .navbar{
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .navbar-toggler .bar{
+        width: 25px;
+        height: 3px;
+        margin: 5px 5px;
+        transition: all 0.3s ease-in-out;
+        background: var(--silver);
+        display: block;
+        cursor: pointer;
+    }
+    .navbar-toggler.is-active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .navbar-toggler.is-active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .navbar-toggler.is-active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .navbar-collapse{
+        margin-left: -45px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+
 /* project section */
 @media screen and (max-width: 768px){
     .uiux img{
@@ -505,6 +564,22 @@ ul{
         font-size: var(--normal-font-size);
         margin-bottom: -35px;
     }
+    .rasasora img{
+        max-height: calc(445px * 0.425);
+        max-width: calc(826.77px * 0.425);
+        margin-bottom: -130px;
+        margin-left: 8px;
+    }
+    .rasasora .component6{
+        display: none;
+    }
+    .rasasora .description3{
+        height: 168px;
+    }
+    .rasasora p{
+        font-size: var(--normal-font-size);
+        margin-bottom: -35px;
+    }
 }
 
 /* home section */
@@ -539,66 +614,6 @@ ul{
     .home_social a{
         margin-right: 5px;
         margin-left: 8px;
-    }
-}
-
-/* project section */
-@media screen and (max-width: 768px){
-    .uiux img{
-        max-height: calc(572px * 0.375);
-        max-width: calc(937px * 0.375);
-        margin-right: -8px;
-    }
-    .uiux .component1{
-        display: none;
-    }
-    .KarvaWeb img{
-        margin-top: 80px;
-        max-height: calc(572px * 0.375);
-        max-width: calc(938.42px * 0.375);
-        margin-left: 8px;
-    }
-    .KarvaWeb .component2{
-        display: none;
-    }
-    .KarvaWeb a p{
-        float: left;
-        margin-top: 2rem;
-        margin-left: 1rem;
-    }
-    .iotproject img{
-        margin-top: 50px;
-        max-height: calc(445px * 0.435);
-        max-width: calc(810px * 0.435);
-        margin-bottom: 30px;
-        margin-right: -8px;
-    }
-    .iotproject .component3{
-        display: none;
-    }
-    .iotproject .description1{
-        margin-top: 270px;
-        height: 115px;
-    }
-    .iotproject p{
-        font-size: var(--normal-font-size);
-        margin-bottom: -35px;
-    }
-    .robotics img{
-        max-height: calc(445px * 0.425);
-        max-width: calc(826.77px * 0.425);
-        margin-bottom: -130px;
-        margin-left: 8px;
-    }
-    .robotics .component4{
-        display: none;
-    }
-    .robotics .description2{
-        height: 168px;
-    }
-    .robotics p{
-        font-size: var(--normal-font-size);
-        margin-bottom: -35px;
     }
 }
 
