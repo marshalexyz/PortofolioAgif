@@ -1,203 +1,181 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AGIF LABS | PORTFOLIO WEB</title>
+  <link rel="shortcut icon" type="image/jpg" href="assets/favicon/logo.jpg">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <!-- my css -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/jarallax.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#project">Skip to projects</a>
 
-    <title>AGIF LABS | PORTFOLIO WEB</title>
-    <link rel="shortcut icon" type="image/jpg" href="assets/favicon/logo.jpg"/>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-      <div class="container">
-        <!-- Brand -->
-        <a class="navbar-brand" href="https://marshalexyz.github.io/PortofolioAgif"><img class="logopad" src="assets/icon/logopad.png" alt="logo"></a>
-      
-        <!-- Toggler/collapsibe Button -->
-        <div class="navbar-toggler collapsed" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#project">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#skills">Skills</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="assets/CV Agif Ghifari Muchlis.pdf" target="_blank">Curiculum Vitae (CV)</a>
-            </li>            
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Navbar End -->
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="wrap nav__row">
+      <a class="nav__logo" href="#home" aria-label="Agif Labs, back to top">
+        <img src="assets/icon/logopad.png" alt="Agif Labs">
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="menu" class="nav__menu" aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#project">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="nav__cv" href="assets/CV Agif Ghifari Muchlis.pdf" target="_blank" rel="noopener">Curriculum Vitae (CV)</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Home Page Section -->
+  <main>
+    <!-- Home: the cover page -->
     <section class="home" id="home">
-      <div class="container">
-        <div class="row d-flex align-items-center">
-          <div class="col-md-5">
-            <div class="home_photo text-center">
-              <img src="assets/images/profile.png" alt="photo">
-              <div class="circle"></div>
-            </div>
+      <div class="wrap">
+        <div class="strip strip--hero">
+
+          <figure class="panel photo pop" style="--d:.05s; --tilt:-1deg">
+            <img id="avatar" src="assets/images/profile.png" alt="Portrait of Agif Ghifari Muchlis">
+            <figcaption class="caption caption--float">Meet the maker</figcaption>
+          </figure>
+
+          <div class="panel title pop" style="--d:.25s; --tilt:1deg">
+            <div class="bubble bubble--left">Hi, I'm Agif Ghifari Muchlis!</div>
+            <h1 class="hero-title">Fullstack<br>Developer</h1>
           </div>
-          <div class="col-md-7">
-            <div class="home_intro">
-              <h2>Hi, i'm Agif Ghifari Muchlis</h2>
-              <h1>Fullstack Developer</h1>
-              <p>Informatics graduate with a strong passion and innovative skills in UI/UX Design, Graphic Design, Web Development, and Video Editing.
-                Creative and trend-aware, with experience in blending visual arts and user interface needs to produce engaging content.
-                Skilled in designing user-friendly, aesthetically pleasing websites, and committed to continuous learning.</p>
-              <div class="home_social">
-                <a href="https://www.instagram.com/agifgm/"><img src="assets/icon/instagram.svg" alt="instagram"></a>
-                <a href="https://www.linkedin.com/in/agifghifarimuchlis/"><img src="assets/icon/linkedin.svg" alt="linkedin"></a>
-                <a href="https://github.com/marshalexyz"><img src="assets/icon/github.svg" alt="github"></a>
-                <a href="https://www.youtube.com/@marshalxyz"><img src="assets/icon/youtube.svg" alt="youtube"></a>
-              </div>
+
+          <div class="panel intro pop" style="--d:.45s; --tilt:-.6deg">
+            <p>Informatics graduate with a strong passion and innovative skills in UI/UX Design, Graphic Design, Web Development, and Video Editing.
+              Creative and trend-aware, with experience in blending visual arts and user interface needs to produce engaging content.
+              Skilled in designing user-friendly, aesthetically pleasing websites, and committed to continuous learning.</p>
+            <div class="social">
+              <a href="https://www.instagram.com/agifgm/" aria-label="Instagram"><img src="assets/icon/instagram.svg" alt=""></a>
+              <a href="https://www.linkedin.com/in/agifghifarimuchlis/" aria-label="LinkedIn"><img src="assets/icon/linkedin.svg" alt=""></a>
+              <a href="https://github.com/marshalexyz" aria-label="GitHub"><img src="assets/icon/github.svg" alt=""></a>
+              <a href="https://www.youtube.com/@marshalxyz" aria-label="YouTube"><img src="assets/icon/youtube.svg" alt=""></a>
             </div>
+            <span class="sfx sfx--pink" style="--r:10deg">WOW!</span>
           </div>
+
         </div>
       </div>
     </section>
-    <!-- End Home Page Section -->
 
-    <!-- Project Section -->
+    <!-- Projects: the story pages -->
     <section class="project" id="project">
-      <div class="container">
-        <div class="row">
-          <h1>Portfolio Projects</h1>
-          <div class="line"></div>
-          <div class="uiux">
-            <img src="assets/images/uiux.png" alt="uiux">
-            <img class="component1" data-jarallax-element="100 250" src="assets/components/uiux.svg" alt="ui ux design">
-          </div>
-          <div class="KarvaWeb">
-            <img src="assets/images/karva capital.jpg" alt="KarvaWeb">
-            <a target="_blank" href="https://marshalexyz.github.io/KarvaCapital/"><p>See <br>Web Pages</p></a>
-            <img class="component2" data-jarallax-element="-100 -250" src="assets/components/webprogramming.svg" alt="web programming">
-          </div>
-          <div class="iotproject">
-            <img src="assets/images/smartaquarium.jfif" alt="smartaquarium">
-            <div class="description1"></div>
-            <p><br>Smart Aquarium<br>with Internet of Things(IOT)</p>
-            <img class="component3" data-jarallax-element="100 150" src="assets/components/iot.svg" alt="internet of things">
-          </div>
-          <div class="robotics">
-            <img src="assets/images/robotpencapit.jfif" alt="robotics">
-            <div class="description2"></div>
-            <p>Robot Pencapit.<br>Inspired by KRTMI</p>
-            <img class="component4" data-jarallax-element="-100 -150" src="assets/components/robotics.svg" alt="robotics">
-          </div>
-          <div class="kriptofolk">
-            <img src="assets/images/kriptofolk.jpg" alt="kriptofolk">
-            <div class="description2"></div>
-            <a href="https://canva.link/arxdtmqzvyjglb7" target="_blank" style="text-decoration: none; color: inherit;">
-              <p>Design Graph.<br>Content CryptoFolk<br>Click this to check<br>Design</p>
-            </a>
-            <img class="component5" data-jarallax-element="-100 -150" src="assets/components/graphicdesign.svg" alt="graphic design">
-          </div>
-          <div class="rasasora">
-            <img src="assets/images/rasasora.png" alt="Rasa Sora">
-            <div class="description3"></div>
-            <a href="https://rasa-sora.chalifa.id/" target="_blank" style="text-decoration: none; color: inherit;">
-              <p>Rasa Sora.<br>Speech Emotion Recognition<br>By Sundanese<br>Click this to review</p>
-            </a>
-            <img class="component6" data-jarallax-element="-100 -150" src="assets/components/deeplearning.svg" alt="deep learning">
-          </div>
-          <div class="row">
-            <a href="https://www.linkedin.com/in/agifghifarimuchlis/" target="_blank" style="text-decoration: none; color: inherit;">
-              <h1>More Portfolio Check LinkedIn</h1>
-              <div class="line"></div>
-            </a>   
+      <div class="wrap">
+        <h2 class="ribbon">Portfolio Projects</h2>
+
+        <div class="strip strip--work">
+
+          <article class="panel work s7" style="--tilt:-.8deg">
+            <div class="shot"><img src="assets/images/uiux.png" alt="UI/UX design of a food ordering app: 40 screens" loading="lazy"></div>
+            <div class="caption"><h3>UI/UX Design</h3><p>Food ordering app, 40 screens</p></div>
+            <span class="sfx sfx--cyan" style="--r:-8deg">DESIGN!</span>
+          </article>
+
+          <article class="panel work s5" style="--tilt:1deg">
+            <div class="shot"><img src="assets/images/karva capital.jpg" alt="Karva Capital website" loading="lazy"></div>
+            <div class="caption"><h3>Karva Capital</h3><p><a class="stretch" target="_blank" rel="noopener" href="https://marshalexyz.github.io/KarvaCapital/">See web pages</a></p></div>
+            <span class="sfx sfx--yellow" style="--r:9deg">CLICK!</span>
+          </article>
+
+          <article class="panel work s5" style="--tilt:.8deg">
+            <div class="shot"><img src="assets/images/smartaquarium.jfif" alt="Smart aquarium prototype" loading="lazy"></div>
+            <div class="caption"><h3>Smart Aquarium</h3><p>with Internet of Things (IoT)</p></div>
+            <span class="sfx sfx--pink" style="--r:-10deg">BZZT!</span>
+          </article>
+
+          <article class="panel work s7" style="--tilt:-1deg">
+            <div class="shot"><img src="assets/images/robotpencapit.jfif" alt="Robot Pencapit" loading="lazy"></div>
+            <div class="caption"><h3>Robot Pencapit</h3><p>Inspired by KRTMI</p></div>
+            <span class="sfx sfx--cyan" style="--r:8deg">CLANK!</span>
+          </article>
+
+          <article class="panel work s7" style="--tilt:.7deg">
+            <div class="shot"><img src="assets/images/kriptofolk.jpg" alt="CryptoFolk graphic design" loading="lazy"></div>
+            <div class="caption"><h3>Design Graph: CryptoFolk</h3><p><a class="stretch" href="https://canva.link/arxdtmqzvyjglb7" target="_blank" rel="noopener">Check the design</a></p></div>
+            <span class="sfx sfx--yellow" style="--r:-9deg">KA-CHING!</span>
+          </article>
+
+          <article class="panel work s5" style="--tilt:-.9deg">
+            <div class="shot"><img src="assets/images/rasasora.png" alt="Rasa Sora web app" loading="lazy"></div>
+            <div class="caption"><h3>Rasa Sora</h3><p>Speech Emotion Recognition for Sundanese. <a class="stretch" href="https://rasa-sora.chalifa.id/" target="_blank" rel="noopener">Try the app</a></p></div>
+            <span class="sfx sfx--pink" style="--r:10deg">SPEAK!</span>
+          </article>
+
         </div>
-        </div>        
+
+        <a class="more" href="https://www.linkedin.com/in/agifghifarimuchlis/" target="_blank" rel="noopener">
+          More portfolio? Check LinkedIn
+        </a>
       </div>
     </section>
-    <!-- End Project Section -->
 
-    <!-- Tools and Skills section -->
+    <!-- Skills: the power-up page -->
     <section class="skills" id="skills">
-      <div class="container">
-        <div class="row">
-          <h1>Tools & Skills</h1>
-          <div class="line"></div>
-          <div class="programming text-center">
-            <img src="assets/icon/html.svg" alt="html">
-            <img src="assets/icon/css.svg" alt="css">
-            <img src="assets/icon/javascript.svg" alt="javascript">
-            <img src="assets/icon/python.svg" alt="python">
-            <img src="assets/icon/php.svg" alt="php">
-            <img src="assets/icon/bootstrap.svg" alt="bootstrap">
-            <img class="mysql" src="assets/icon/mysql.svg" alt="mysql">
+      <div class="wrap">
+        <h2 class="ribbon ribbon--pink">Tools &amp; Skills</h2>
+
+        <div class="strip strip--skills">
+          <div class="panel kit" style="--tilt:-.6deg">
+            <h3 class="kit__name">Code</h3>
+            <ul class="chips">
+              <li><img src="assets/icon/html.svg" alt="HTML"></li>
+              <li><img src="assets/icon/css.svg" alt="CSS"></li>
+              <li><img src="assets/icon/javascript.svg" alt="JavaScript"></li>
+              <li><img src="assets/icon/python.svg" alt="Python"></li>
+              <li><img src="assets/icon/php.svg" alt="PHP"></li>
+              <li><img src="assets/icon/bootstrap.svg" alt="Bootstrap"></li>
+              <li><img src="assets/icon/mysql.svg" alt="MySQL"></li>
+            </ul>
           </div>
-          <div class="design text-center">
-            <img src="assets/icon/photoshop.svg" alt="photoshop">
-            <img src="assets/icon/illustrator.svg" alt="illustrator">
-            <img src="assets/icon/premiere_pro.png" alt="premiere">
-            <img src="assets/icon/canva.svg" alt="canva">
-            <img class="figma" src="assets/icon/figma.svg" alt="figma">
+          <div class="panel kit kit--design" style="--tilt:.6deg">
+            <h3 class="kit__name">Design</h3>
+            <ul class="chips">
+              <li><img src="assets/icon/photoshop.svg" alt="Photoshop"></li>
+              <li><img src="assets/icon/illustrator.svg" alt="Illustrator"></li>
+              <li><img src="assets/icon/premiere_pro.png" alt="Premiere Pro"></li>
+              <li><img src="assets/icon/canva.svg" alt="Canva"></li>
+              <li><img src="assets/icon/figma.svg" alt="Figma"></li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
-    <!-- End Tools and Skills section -->
 
-    <!-- Get In Touch Section -->
+    <!-- Contact: the last page -->
     <section class="contact" id="contact">
-      <div class="container">
-        <div class="row">
-          <h1>Get in touch</h1>
-          <div class="line"></div>
-          <p class="desc">For <span>hiring</span>, <span>business</span>, or <span>collaboration</span> please contact me via email <span><a href="mailto:agifghifarimuchlis@gmail.com">agifghifarimuchlis@gmail.com</a></span> or <span><a href="https://www.linkedin.com/in/agifghifarimuchlis/">Linkedin.</a></span></p>
-          <div class="contact_social">
-            <a href="https://www.instagram.com/agifgm/"><img src="assets/icon/instagram.svg" alt="instagram"></a>
-            <a href="https://www.linkedin.com/in/agifghifarimuchlis/"><img src="assets/icon/linkedin.svg" alt="linkedin"></a>
-            <a href="https://github.com/marshalexyz"><img src="assets/icon/github.svg" alt="github"></a>
-            <a href="https://www.youtube.com/@marshalxyz"><img src="assets/icon/youtube.svg" alt="youtube"></a>
-            <img class="signed_logo" src="assets/components/logopad.svg" alt="logo sign">
+      <div class="wrap">
+        <h2 class="ribbon">Get in touch</h2>
+
+        <div class="panel talk" style="--tilt:-.5deg">
+          <div class="bubble bubble--down">
+            <p>For <b>hiring</b>, <b>business</b>, or <b>collaboration</b> please contact me via email
+              <a href="mailto:agifghifarimuchlis@gmail.com">agifghifarimuchlis@gmail.com</a>
+              or <a href="https://www.linkedin.com/in/agifghifarimuchlis/">LinkedIn</a>.</p>
           </div>
-          <div class="copyright">
-            <p>Agif Labs &#169; 2026</p>
+          <div class="talk__row">
+            <div class="social">
+              <a href="https://www.instagram.com/agifgm/" aria-label="Instagram"><img src="assets/icon/instagram.svg" alt=""></a>
+              <a href="https://www.linkedin.com/in/agifghifarimuchlis/" aria-label="LinkedIn"><img src="assets/icon/linkedin.svg" alt=""></a>
+              <a href="https://github.com/marshalexyz" aria-label="GitHub"><img src="assets/icon/github.svg" alt=""></a>
+              <a href="https://www.youtube.com/@marshalxyz" aria-label="YouTube"><img src="assets/icon/youtube.svg" alt=""></a>
+            </div>
+            <p class="tbc">To be continued...</p>
           </div>
         </div>
+
+        <p class="copyright">Agif Labs &#169; 2026</p>
       </div>
     </section>
-    <!-- End Get In Touch Section -->
+  </main>
 
-    <!-- Scripts -->
-    <!-- gsap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/jarallax.js"></script>
-    <script src="js/jarallax-element.js"></script>
-    <!-- End Scripts -->
-
-  </body>
+  <script src="js/script.js"></script>
+</body>
 </html>
