@@ -328,6 +328,7 @@ a{ color: inherit; }
 .project{ padding: 40px 0 90px; }
 .s7{ grid-column: span 7; }
 .s5{ grid-column: span 5; }
+.s12{ grid-column: 1 / -1; }
 
 .work{
     display: flex;
@@ -347,6 +348,9 @@ a{ color: inherit; }
     border-bottom: var(--line) solid var(--ink);
     background: var(--ink);
 }
+/* wide card on its own row: a bit taller so the screenshot is not squashed */
+.s12 .shot{ min-height: 420px; }
+.shot--top img{ object-position: left top; }
 .shot img{
     position: absolute;
     inset: 0;
@@ -484,7 +488,7 @@ a{ color: inherit; }
     .strip,
     .strip--hero,
     .strip--skills{ grid-template-columns: 1fr; grid-template-rows: auto; gap: 38px; }
-    .photo, .title, .intro, .s7, .s5{ grid-column: 1 / -1; grid-row: auto; }
+    .photo, .title, .intro, .s7, .s5, .s12{ grid-column: 1 / -1; grid-row: auto; }
 
     .photo{ min-height: 0; height: 400px; }
     .home{ padding-top: 40px; }
@@ -493,6 +497,7 @@ a{ color: inherit; }
     .bubble--left::before, .bubble--left::after{ display: none; }
     .intro{ padding: 24px 22px; }
     .shot{ min-height: 0; flex: none; height: 230px; }
+    .s12 .shot{ min-height: 0; }
     .talk{ padding: 30px 22px; }
     .talk .bubble{ font-size: 1.1rem; padding: 18px 20px; }
 }

@@ -169,6 +169,6 @@ muteBtn.addEventListener('click', () => {
     muteBtn.textContent = muted ? '🔇' : '🔊';
     muteBtn.setAttribute('aria-pressed', String(muted));
     muteBtn.setAttribute('aria-label', muted ? 'Unmute sound effects' : 'Mute sound effects');
-    play('pop');                                     // confirmation sound when turning on
+    play('pop');                                    
 });
 document.body.appendChild(muteBtn);
