@@ -351,6 +351,12 @@ a{ color: inherit; }
 /* wide card on its own row: a bit taller so the screenshot is not squashed */
 .s12 .shot{ min-height: 420px; }
 .shot--top img{ object-position: left top; }
+.s12 .shot.shot--wide{
+    flex: none;
+    min-height: 0;
+    aspect-ratio: 1012 / 424;
+}
+.shot--wide img{ object-fit: cover; object-position: center top; }
 .shot img{
     position: absolute;
     inset: 0;
@@ -497,7 +503,7 @@ a{ color: inherit; }
     .bubble--left::before, .bubble--left::after{ display: none; }
     .intro{ padding: 24px 22px; }
     .shot{ min-height: 0; flex: none; height: 230px; }
-    .s12 .shot{ min-height: 0; }
+    .s12 .shot{ min-height: auto; }
     .talk{ padding: 30px 22px; }
     .talk .bubble{ font-size: 1.1rem; padding: 18px 20px; }
 }
