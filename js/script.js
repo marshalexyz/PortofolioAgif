@@ -1,174 +1,120 @@
-// ---------- Mobile menu ----------
-const toggle = document.querySelector('.nav__toggle');
-const menu = document.getElementById('menu');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function setMenu(open) {
-    menu.classList.toggle('is-open', open);
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-}
-
-toggle.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
-menu.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
-
-// ---------- Highlight the nav link of the section on screen ----------
-const links = [...menu.querySelectorAll('a[href^="#"]')];
-const sections = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-
-if ('IntersectionObserver' in window) {
-    const spy = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
-        });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    sections.forEach((s) => spy.observe(s));
-}
-
-// ---------- Comic sound effects (synthesized, no audio files needed) ----------
-let audioCtx;
-let muted = false;
-
+// ---------- 8-bit sound (synthesized, no audio files) ----------
+let audioCtx, muted = false;
 function ctx() {
     if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     if (audioCtx.state === 'suspended') audioCtx.resume();
     return audioCtx;
 }
-
-// Burst of noise = the "crack" of a punch / impact
-function noiseBurst(c, t, dur, vol, freq) {
-    const len = Math.floor(c.sampleRate * dur);
-    const buf = c.createBuffer(1, len, c.sampleRate);
-    const data = buf.getChannelData(0);
-    for (let i = 0; i < len; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / len);
-    const src = c.createBufferSource();
-    src.buffer = buf;
-    const filter = c.createBiquadFilter();
-    filter.type = 'bandpass';
-    filter.frequency.value = freq;
-    const gain = c.createGain();
-    gain.gain.setValueAtTime(vol, t);
-    gain.gain.exponentialRampToValueAtTime(0.001, t + dur);
-    src.connect(filter).connect(gain).connect(c.destination);
-    src.start(t);
+function tone(c, t, freq, dur, vol = 0.12, type = 'square', to) {
+    const o = c.createOscillator(), g = c.createGain();
+    o.type = type;
+    o.frequency.setValueAtTime(freq, t);
+    if (to) o.frequency.exponentialRampToValueAtTime(to, t + dur);
+    g.gain.setValueAtTime(vol, t);
+    g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    o.connect(g).connect(c.destination);
+    o.start(t); o.stop(t + dur);
 }
-
-// Falling tone = the "thump" of a punch
-function thump(c, t, from, to, dur, vol, type = 'sine') {
-    const osc = c.createOscillator();
-    const gain = c.createGain();
-    osc.type = type;
-    osc.frequency.setValueAtTime(from, t);
-    osc.frequency.exponentialRampToValueAtTime(to, t + dur);
-    gain.gain.setValueAtTime(vol, t);
-    gain.gain.exponentialRampToValueAtTime(0.001, t + dur);
-    osc.connect(gain).connect(c.destination);
-    osc.start(t);
-    osc.stop(t + dur);
-}
-
 const sounds = {
-    // heavy impact: POW! BAM! WHAM! BOOM!
-    pow(c) {
-        const t = c.currentTime;
-        noiseBurst(c, t, 0.18, 0.9, 1800);
-        thump(c, t, 180, 40, 0.28, 1);
-    },
-    // laser: ZAP!
-    zap(c) {
-        const t = c.currentTime;
-        thump(c, t, 1400, 120, 0.22, 0.35, 'sawtooth');
-        noiseBurst(c, t, 0.08, 0.3, 4000);
-    },
-    // small pop for buttons and links
-    pop(c) {
-        const t = c.currentTime;
-        thump(c, t, 520, 220, 0.09, 0.4, 'square');
-    },
-    // cartoon spring: BOING!
-    boing(c) {
-        const t = c.currentTime;
-        const osc = c.createOscillator();
-        const gain = c.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(200, t);
-        osc.frequency.exponentialRampToValueAtTime(600, t + 0.08);
-        osc.frequency.exponentialRampToValueAtTime(260, t + 0.3);
-        gain.gain.setValueAtTime(0.5, t);
-        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
-        osc.connect(gain).connect(c.destination);
-        osc.start(t);
-        osc.stop(t + 0.3);
-    }
+    select(c) { tone(c, c.currentTime, 660, 0.06); },                          // menu blip
+    coin(c)   { const t = c.currentTime; tone(c, t, 988, 0.07); tone(c, t + 0.07, 1319, 0.22); },
+    hit(c)    { const t = c.currentTime; tone(c, t, 220, 0.14, 0.15, 'sawtooth', 60); },
+    levelup(c){ const t = c.currentTime; [523, 659, 784, 1047].forEach((f, i) => tone(c, t + i * 0.09, f, 0.14)); }
 };
-
 function play(name) {
     if (muted) return;
-    try { sounds[name](ctx()); } catch (e) { /* audio not supported, ignore */ }
+    try { sounds[name](ctx()); } catch (e) { /* audio unsupported */ }
 }
 
-// ---------- Click the photo: comic word + matching sound ----------
-const photo = document.querySelector('.photo');
-const words = ['POW!', 'BAM!', 'ZAP!', 'WHAM!', 'BOOM!'];
-const colors = ['sfx--pink', 'sfx--cyan', 'sfx--yellow'];
+// ---------- HUD: XP follows scroll, level follows screens visited ----------
+const xp = document.getElementById('xp');
+const lvl = document.getElementById('lvl');
+const toast = document.getElementById('toast');
+const links = [...document.querySelectorAll('.hotbar a')];
+const seen = new Set(['home']);
 
-photo.addEventListener('click', (e) => {
-    const box = photo.getBoundingClientRect();
-    const word = words[Math.floor(Math.random() * words.length)];
+function updateXP() {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    xp.style.width = (max > 0 ? Math.min(100, scrollY / max * 100) : 0) + '%';
+}
+addEventListener('scroll', updateXP, { passive: true });
+addEventListener('resize', updateXP);
+updateXP();
+
+function announce(html) {
+    toast.innerHTML = html;
+    toast.classList.remove('show');
+    void toast.offsetWidth;
+    toast.classList.add('show');
+}
+
+if ('IntersectionObserver' in window) {
+    const spy = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const id = e.target.id;
+            links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+            if (!seen.has(id)) {
+                seen.add(id);
+                lvl.textContent = seen.size;
+                play('levelup');
+                announce('LEVEL UP!<br>Lv ' + seen.size + ' · ' + e.target.dataset.lv);
+            }
+        });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('.screen').forEach((s) => spy.observe(s));
+}
+
+// ---------- Dialogue box: typewriter intro ----------
+const intro = document.getElementById('intro');
+if (intro && !reduced) {
+    const text = intro.dataset.text;
+    intro.textContent = '';
+    intro.classList.add('typing');
+    let i = 0;
+    const timer = setInterval(() => {
+        intro.textContent = text.slice(0, ++i);
+        if (i >= text.length) { clearInterval(timer); intro.classList.remove('typing'); }
+    }, 16);
+}
+
+// ---------- Tap the portrait: +XP floating number ----------
+const portrait = document.getElementById('avatar-box');
+const xpGain = [5, 10, 15, 25];
+portrait.addEventListener('click', (e) => {
+    const box = portrait.getBoundingClientRect();
     const fx = document.createElement('span');
-    fx.className = 'sfx pow ' + colors[Math.floor(Math.random() * colors.length)];
-    fx.textContent = word;
+    fx.className = 'float';
+    fx.textContent = '+' + xpGain[Math.floor(Math.random() * xpGain.length)] + ' XP';
     fx.style.left = (e.clientX - box.left) + 'px';
     fx.style.top = (e.clientY - box.top) + 'px';
     fx.setAttribute('aria-hidden', 'true');
-    photo.appendChild(fx);
-    play(word === 'ZAP!' ? 'zap' : 'pow');
+    portrait.appendChild(fx);
+    play('coin');
     setTimeout(() => fx.remove(), 900);
 });
 
-// ---------- Every press anywhere on the page makes a sound ----------
+// ---------- Menu blips on links, buttons, inventory slots ----------
 document.addEventListener('pointerdown', (e) => {
-    if (e.target.closest('.photo')) return;          // photo has its own sound
-    if (e.target.closest('.sound-toggle')) return;   // mute button handles itself
-
-    if (e.target.closest('a, button')) {
-        play('pop');                                 // links and buttons
-    } else if (e.target.closest('.shot, .card')) {
-        play('boing');                               // project images and cards
-    } else if (e.target.closest('.panel, li')) {
-        play('pow');                                 // panels, skill icons
-    } else {
-        play('pop');                                 // anything else, even empty space
-    }
+    if (e.target.closest('.sound-toggle') || e.target.closest('#avatar-box')) return;
+    if (e.target.closest('a, button')) play('select');
+    else if (e.target.closest('.slots li, .quest')) play('hit');
 });
 
-// ---------- Mute button (created here, no HTML changes needed) ----------
+// ---------- Mute button ----------
 const muteBtn = document.createElement('button');
 muteBtn.type = 'button';
 muteBtn.className = 'sound-toggle';
 muteBtn.setAttribute('aria-label', 'Mute sound effects');
 muteBtn.setAttribute('aria-pressed', 'false');
 muteBtn.textContent = '🔊';
-Object.assign(muteBtn.style, {
-    position: 'fixed',
-    right: '18px',
-    bottom: '18px',
-    zIndex: '999',
-    width: '48px',
-    height: '48px',
-    fontSize: '22px',
-    cursor: 'pointer',
-    background: 'var(--yellow, #ffd23f)',
-    border: '3px solid var(--ink, #16131f)',
-    boxShadow: '4px 4px 0 var(--ink, #16131f)'
-});
-
 muteBtn.addEventListener('click', () => {
     muted = !muted;
     muteBtn.textContent = muted ? '🔇' : '🔊';
     muteBtn.setAttribute('aria-pressed', String(muted));
     muteBtn.setAttribute('aria-label', muted ? 'Unmute sound effects' : 'Mute sound effects');
-    play('pop');                                    
+    play('select');
 });
 document.body.appendChild(muteBtn);
